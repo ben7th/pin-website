@@ -22,8 +22,10 @@ Rails::Initializer.run do |config|
   config.gem "pie-auth"
   config.gem "pie-ui"
 
+  config.gem "nokogiri"
   config.gem "haml"
   config.gem "pacecar"
+  config.gem 'mislav-will_paginate',:lib => 'will_paginate'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
