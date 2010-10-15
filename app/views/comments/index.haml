@@ -1,0 +1,8 @@
+- mplist @web_site.comments,:for=>[@web_site,Comment]
+%div 增加评注
+- mindpin_remote_form_for Comment.new,:url=>web_site_remarks_path,:html=>{:class=>"comment_form"} do |f|
+  = hidden_field_tag "from","index"
+  = hidden_field_tag "web_site_id",@web_site.id
+  = f.hidden_field :reply_to
+  = f.text_area :content,:show_label=>false
+  = f.submit "提交评论"

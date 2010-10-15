@@ -30,6 +30,10 @@ class IntroductionsController < ApplicationController
     return render :action=>:edit
   end
 
+  def index
+    @web_site = WebSite.find(params[:web_site_id])
+  end
+
   def per_load
     @introduction = Introduction.find(params[:id]) if params[:id]
     @introductable = WebSite.find(params[:web_site_id]) if params[:web_site_id]
