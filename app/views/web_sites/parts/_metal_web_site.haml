@@ -1,0 +1,5 @@
+%div
+  = link_to web_site.title,"http://#{web_site.domain}",:target=>'_blank'
+%div
+  = web_site.domain
+%div{:class => "pagerank#{web_site.page_rank}"}

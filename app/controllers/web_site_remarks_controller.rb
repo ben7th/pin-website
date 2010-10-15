@@ -17,8 +17,8 @@ class WebSiteRemarksController < ApplicationController
 
   def _insert_mplist
     render_ui do |ui|
-      ui.mplist :insert,[@web_site,@remark],:partial=>"comments/info_comment"
-      ui.page << "$('remark_content').value = ''"
+      ui.mplist :insert,[@web_site,@remark],:partial=>"comments/parts/mpinfo_comment"
+      ui.page << "$('comment_content').value = ''"
     end
   end
 
@@ -33,11 +33,6 @@ class WebSiteRemarksController < ApplicationController
   end
 
   def pre_load
-    if action_name == "create"
-      @web_site = WebSite.create_web_site(params[:domain])
-    end
-    if action_name == "index"
-      @web_site = WebSite.find(params[:web_site_id])
-    end
+      @web_site = WebSite.find(params[:web_site_id]) if params[:web_site_id]
   end
 end

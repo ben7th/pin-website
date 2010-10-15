@@ -1,5 +1,5 @@
 class WebSitesController < ApplicationController
-
+  before_filter :login_required
   before_filter :pre_load
 
   def index
@@ -19,7 +19,7 @@ class WebSitesController < ApplicationController
     @web_site = WebSite.create_web_site(domain)
     if @web_site
       render_ui do |ui|
-        ui.page.close_box
+        ui.fbox :close
         ui.mplist :insert,@web_site,:prev=>:TOP
       end
       return
