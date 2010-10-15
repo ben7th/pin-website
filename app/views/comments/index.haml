@@ -1,3 +1,5 @@
+=render :partial=>"/web_sites/info_web_site"
+
 - mplist @web_site.comments,:for=>[@web_site,Comment]
 %div 增加评注
 - mindpin_remote_form_for Comment.new,:url=>web_site_remarks_path,:html=>{:class=>"comment_form"} do |f|

@@ -27,7 +27,7 @@ class WebSitesController < ApplicationController
   end
 
   def show
-    
+    redirect_to web_site_introductions_path(@web_site)
   end
 
   def pre_load
