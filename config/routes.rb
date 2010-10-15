@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :web_sites do |web_site|
     web_site.resource :feeling
     web_site.resources :introductions
+    web_site.resources :comments
   end
   
 end

@@ -22,6 +22,10 @@ class CommentsController < ApplicationController
     @last_comments = @markable.comments.by_created_at(:desc).limited(10)
     render :layout=>false
   end
+
+  def index
+    @web_site = WebSite.find(params[:web_site_id])
+  end
   
   def pre_load
     @markable = Entry.find(params[:entry_id]) if params[:entry_id]
