@@ -7,5 +7,6 @@ ActionController::Routing::Routes.draw do |map|
     web_site.resources :introductions
     web_site.resources :comments
   end
+  map.resources :browse_histories
   
 end
