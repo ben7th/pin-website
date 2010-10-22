@@ -8,7 +8,8 @@ ActionController::Routing::Routes.draw do |map|
     web_site.resources :comments
   end
 
+  map.resources :browse_histories
   
   map.sidebar_web_site_info "sidebar/web_site_infos",:controller=>"sidebar/web_site_infos",:action=>"show"
-  
+
 end
