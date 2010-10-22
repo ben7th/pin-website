@@ -1,7 +1,7 @@
 class Sidebar::WebSiteInfosController < ApplicationController
   before_filter :login_required
   before_filter :pre_load
-  layout nil
+  layout "sidebar"
   def pre_load
     @web_site = WebSite.find_by_domain(URI.parse(params[:url]).host) if params[:url]
   end
