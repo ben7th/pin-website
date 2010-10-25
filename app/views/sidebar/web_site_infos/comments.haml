@@ -1,0 +1,10 @@
+评论
+-if @web_site
+  =@web_site.domain
+  -mplist @web_site.comments,:for=>Comment do |comment|
+    =render :partial=>"sidebar/web_site_infos/parts/mpinfo_comment",:locals=>{:comment=>comment}
+  -mindpin_remote_form_for Comment.new,:url=>sidebar_web_site_comment_path,:html=>{:class=>"comment_form"} do |f|
+    =hidden_field_tag "url",params[:url]
+    =f.text_area :content,:show_label=>false,:style=>"height:150px;"
+    =f.submit "提交评论"
+=link_to "更多",sidebar_web_site_detail_comments_path,:target=>"_blank"
