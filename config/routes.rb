@@ -11,5 +11,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :browse_histories
   
   map.sidebar_web_site_info "sidebar/web_site_infos",:controller=>"sidebar/web_site_infos",:action=>"show"
-
+  map.sidebar_browse_histories_infos "sidebar/browse_histories_infos",:controller=>"sidebar/browse_histories_infos",:action=>"index"
 end
