@@ -8,16 +8,7 @@ class Sidebar::WebSiteInfosController < ApplicationController
 
   def show;end
 
-  def show_detail
-    render :text=>"detail"
-  end
-
-  def comments
-    end
-
-  def comments_detail
-    render :text=>"comments_detail"
-  end
+  def comments;end
 
   def comment
     comment = @web_site.comments.new(params[:comment])
@@ -25,6 +16,7 @@ class Sidebar::WebSiteInfosController < ApplicationController
     if comment.save
       render_ui do |ui|
         ui.mplist :insert,comment,:partial=>"sidebar/web_site_infos/parts/mpinfo_comment",:locals=>{:comment=>comment},:prev=>"TOP"
+        ui.page << "jQuery('#comment_content').val('')"
       end
     end
   end

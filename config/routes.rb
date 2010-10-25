@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   map.sidebar_web_site_detail_info "sidebar/web_site_detail_infos",:controller=>"sidebar/web_site_infos",:action=>"show_detail"
 
   map.sidebar_web_site_comments "sidebar/web_site_comments",:controller=>"sidebar/web_site_infos",:action=>"comments"
-  map.sidebar_web_site_detail_comments "sidebar/web_site_detail_comments",:controller=>"sidebar/web_site_infos",:action=>"comments_detail"
 
   # 创建评论
   map.sidebar_web_site_comment "sidebar/web_site_comment",:controller=>"sidebar/web_site_infos",:action=>"comment",:conditions=>{:method=>:post}

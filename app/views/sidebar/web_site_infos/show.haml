@@ -1,4 +1,4 @@
-网站的 信息
 -if @web_site
-  =@web_site.domain
-=link_to "查看详细",sidebar_web_site_detail_info_path,:target=>"_blank"
+  %div= "#{@web_site.domain} 的信息"
+  %div= web_site_introduction_info(@web_site)
+  =link_to "查看详细",web_site_introductions_path(:web_site_id=>@web_site.id),:target=>"_blank"

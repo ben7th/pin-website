@@ -2,11 +2,10 @@
 - adminable = (logged_in? && current_user == creator)
 - classname = ['comment-info',(adminable ? 'adminable':'')] *' '
 
-%div{:class=>classname}
+%div{:class=>classname,:style=>"width:230px"}
   .meta
     .fleft.marginr5
       =logo creator,'tiny'
-
     .fright
       .fleft.marginr10
         =created_at comment
