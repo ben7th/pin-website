@@ -3,7 +3,8 @@ class Sidebar::WebSiteInfosController < ApplicationController
   before_filter :pre_load
   layout "sidebar"
   def pre_load
-    @web_site = WebSite.find_by_domain(URI.parse(params[:url]).host) if params[:url]
+    @ws_domain = URI.parse(params[:url]).host if params[:url]
+    @web_site = WebSite.find_by_domain(@ws_domain) if @ws_domain
   end
 
   def show;end
@@ -11,6 +12,7 @@ class Sidebar::WebSiteInfosController < ApplicationController
   def comments;end
 
   def comment
+    @web_site ||= WebSite.create_web_site(@ws_domain)
     comment = @web_site.comments.new(params[:comment])
     comment.creator = current_user
     if comment.save
