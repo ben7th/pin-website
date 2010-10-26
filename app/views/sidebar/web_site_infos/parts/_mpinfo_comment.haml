@@ -16,4 +16,8 @@
     - if adminable
       .actions
         = link_to '<span>修改</span>','javascript:void(0)',:class=>'minibutton'
-        = link_to_remote "<span>删除</span>",:url=>comment_path(comment),:method=>:delete,:confirm=>"确定要删除这个？",:html=>{:class=>'minibutton'}
+        =link_to "<span>删除</span>","##",:class=>'minibutton delete_comment'
+        %div{:class=>"hide delete_confirm"}
+          %div 确定删除么？
+          =link_to_remote "确定",:url=>comment_path(comment),:method=>:delete,:html=>{:class=>'submit_confirm'}
+          =link_to "取消",'#',:class=>'cancel_confirm'
