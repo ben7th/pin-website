@@ -3,6 +3,10 @@
 
 =link_to "查看更多",browse_histories_path,:target=>"_blank"
 
-=render_pie
+%p
+=link_to "按照时间顺序",sidebar_browse_histories_infos_path(:order=>"time")
+=link_to "按照浏览次数排序",sidebar_browse_histories_infos_path(:order=>"count")
+-order = params[:order] || 'time'
+=render_pie(order)
 
 

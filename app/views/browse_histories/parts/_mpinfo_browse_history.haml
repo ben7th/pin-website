@@ -1,1 +1,4 @@
-=browse_history.url
+-title = (browse_history.title.blank? ? browse_history.url : browse_history.title)
+-web_site = browse_history.web_site
+%img{:src=>"#{web_site.logo.url}"}
+=link_to title,browse_history.url,:target=>"_blank"
