@@ -6,7 +6,7 @@
 %p
 =link_to "按照时间顺序",sidebar_browse_histories_infos_path(:order=>"time")
 =link_to "按照浏览次数排序",sidebar_browse_histories_infos_path(:order=>"count")
--order = params[:order] || 'time'
+-order = @order
 =render_pie(order)
 
 
