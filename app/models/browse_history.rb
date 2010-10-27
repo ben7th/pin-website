@@ -3,6 +3,10 @@ class BrowseHistory < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :url
 
+   named_scope :from_size, lambda{ |from,size|
+     {:limit=>" #{from},#{size}"}
+   }
+
   # 创建历史记录
   def self.find_or_create(user,params)
     bh = BrowseHistory.find_by_user_id_and_url(user.id,params['url'])
