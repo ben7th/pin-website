@@ -9,18 +9,4 @@ class Sidebar::WebSiteInfosController < ApplicationController
 
   def show;end
 
-  def comments;end
-
-  def comment
-    @web_site ||= WebSite.create_web_site(@ws_domain)
-    comment = @web_site.comments.new(params[:comment])
-    comment.creator = current_user
-    if comment.save
-      render_ui do |ui|
-        ui.mplist :insert,comment,:partial=>"sidebar/web_site_infos/parts/mpinfo_comment",:locals=>{:comment=>comment},:prev=>"TOP"
-        ui.page << "jQuery('#comment_content').val('')"
-      end
-    end
-  end
-  
 end
