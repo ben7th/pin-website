@@ -25,23 +25,6 @@ class WebSite < ActiveRecord::Base
   @logo_url = "#{UserBase::LOGO_URL_ROOT}:class/:attachment/:id/:style/:basename.:extension"
   has_attached_file :logo,:path => @logo_path,:url => @logo_url,:default_url => "/images/logo/default_:class_:style.png"
 
-  # 找到 domain 是 self.domain 的 所有 bookmark_entry
-  def relative_bookmark_entries
-    @relative_bookmark_entries ||= BookmarkEntry.find_all_by_site(self.domain)
-    return @relative_bookmark_entries
-  end
-
-  def relative_urls
-    @relative_bookmark_entries ||= BookmarkEntry.find_all_by_site(self.domain)
-    @relative_bookmark_entries.map{|rbe| rbe.url}
-  end
-
-  def creators_of_relative_bookmark_entries
-    @relative_bookmark_entries ||= BookmarkEntry.find_all_by_site(self.domain)
-    users = @relative_bookmark_entries.map{|rbe| rbe.entry.user}
-    users.uniq!
-    return users
-  end
 
   def self.create_web_site(domain)
     web_site = WebSite.find_by_domain(domain)
@@ -63,7 +46,6 @@ class WebSite < ActiveRecord::Base
     return web_site
   end
 
-  include Comment::MarkableMethods
   include Feeling::FeelableMethods
   include Introduction::IntroductableMethods
 end

@@ -19,5 +19,5 @@
         =link_to "<span>删除</span>","##",:class=>'minibutton delete_comment'
         %div{:class=>"hide delete_confirm"}
           %div 确定删除么？
-          =link_to_remote "确定",:url=>comment_path(comment),:method=>:delete,:html=>{:class=>'submit_confirm'}
+          =link_to_remote "确定",:url=>sidebar_comment_path(comment),:method=>:delete,:html=>{:class=>'submit_confirm'}
           =link_to "取消",'#',:class=>'cancel_confirm'
