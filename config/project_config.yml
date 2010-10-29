@@ -11,4 +11,4 @@ test:
 production:
   name: pin-website
   url: http://website.2010.mindpin.com/
-  master_url: http://dev.config-manager.2010.mindpin.com/
+  master_url: http://config-manager.2010.mindpin.com/
