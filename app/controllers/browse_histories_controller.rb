@@ -21,7 +21,6 @@ class BrowseHistoriesController < ApplicationController
 
   def index
     @browse_histories = current_user.browse_histories
-
   end
   
 end

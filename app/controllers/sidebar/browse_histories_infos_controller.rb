@@ -16,5 +16,9 @@ class Sidebar::BrowseHistoriesInfosController < ApplicationController
       end
     end
   end
+
+  def one_page
+    @browse_historie = BrowseHistory.find_by_url(params['url'])
+  end
   
 end
