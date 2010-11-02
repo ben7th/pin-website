@@ -20,16 +20,6 @@ class BrowseHistory < ActiveRecord::Base
     BrowseHistory.create(:user_id=>user.id,:url=>params['url'],:title=>params['title'])
   end
 
-  # 历史记录的content要更新
-  before_save :update_content
-  def update_content
-    response = HandleGetRequest.get_response_from_url(self.url)
-    charset = Nokogiri::HTML(response).meta_encoding
-
-    self.content =  Iconv.iconv(charset.upcase,"UTF-8",response)
-    return true
-  end
-
   require 'uri'
   def domain
     URI.parse(self.url).host
