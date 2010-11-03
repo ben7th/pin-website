@@ -22,7 +22,7 @@ class BrowseHistory < ActiveRecord::Base
 
   require 'uri'
   def domain
-    URI.parse(self.url.split("?")[0]).host
+    URI.parse(URI.encode(self.url)).host
   end
 
   def web_site
