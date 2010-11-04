@@ -2,7 +2,7 @@
 - adminable = (logged_in? && current_user == creator)
 - classname = ['comment-info',(adminable ? 'adminable':'')] *' '
 
-%div{:class=>classname,:style=>"width:230px"}
+%div{:class=>classname,:style=>"width:300px"}
   .meta
     .fleft.marginr5
       =logo creator,'tiny'
@@ -22,3 +22,4 @@
           =link_to_remote "确定",:url=>sidebar_comment_path(comment),:method=>:delete,:html=>{:class=>'submit_confirm'}
           =link_to "取消",'#',:class=>'cancel_confirm'
         =link_to '<span>分享</span>','javascript:void(0)',:class=>'minibutton share_comment'
+        =link_to '<span>发送</span>','javascript:void(0)',:class=>'minibutton send_comment'
